@@ -1,0 +1,130 @@
+// Visitor Home Page styles
+// *****
+@use "../abstracts/" as *;
+#visitor{
+    .bricks-background{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin: 0.4rem 0;
+        position: relative;
+
+     
+
+        .text-bricks{
+            margin-top: 50px;
+            width: 100%;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            top: 50%;
+            transform: translate(0%,-50%);
+            .h1{
+                color: $primary-default;
+                margin: 0 1.1rem;
+            }
+            button{
+                background-color: $primary-default;
+                color: $background-light;
+                margin-right: 1rem;
+            }
+            @include max-S-phone {
+                .h1 {
+                    font-size: 16px;
+                }
+                .find-now-btn {
+                    font-size: 16px;
+                }
+            }
+            @include max-M-phone {
+                .h1{
+                    font-size: 18px;
+                   
+                }
+                button{
+                    font-size: 10px;
+                    padding:5.5px 15.5px;
+                }
+            }
+            @include min-L-phone{
+                justify-content: center;
+                .h1{
+                    margin-right: 2rem;
+                    font-size: 18px;
+                }
+            }
+
+            @include min-tablet{
+                .h1{
+                    margin-right: 1rem;
+                    font-size: 30px;
+                }
+                .find-now-btn {
+                    font-size: 20px;
+                }
+                br{
+                    display: none;
+                }
+            }
+        }
+    }
+    .sliders-wrapper{
+        
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: $background-normal;
+        overflow: hidden;
+        padding: 4.2vh 0;
+        .slider1,.slider2{
+            display: flex;
+            width: calc(30vh * 18);
+            perspective: 100px;
+            &:hover{
+                animation-play-state: paused;
+            }
+        }
+        .slider1{
+            animation: slideLeft 50s linear infinite;
+            margin-bottom: 4.9vh;
+        }
+        .slider2{
+            animation: slideRight 50s linear infinite;
+        }
+        .slide{
+            height: 17vh;
+            width: 30vh;
+            perspective: 100px;
+            img{
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                padding: 0 1.75vh;
+                transition: transform 0.3s ease;
+                filter: drop-shadow(-5px -5px 5px rgba(0, 0, 0, 0.3));
+                cursor: pointer;
+                &:hover{
+                    transform: translateZ(20px);
+                }
+            }
+        }
+    }
+
+    @keyframes slideLeft {
+        0%{
+            transform: translateX(0);
+        }
+        100%{
+            transform: translateX(calc(-30vh * 9));
+        }
+    }
+    @keyframes slideRight {
+        0%{
+            transform: translateX(calc(-30vh * 9));
+        }
+        100%{
+            transform: translateX(0);
+        }
+    }
+}

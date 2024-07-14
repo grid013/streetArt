@@ -1,0 +1,27 @@
+@use "../abstracts/" as *;
+#artists\/capture-image{
+    .capture-window-wrapper{
+        width: 100%;
+        min-height: 100vh;
+        padding: 51px 18px 36px;
+        background-color: $primary-default;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        video{
+            background-color: $text-default;
+            width: 100%;
+        }
+        canvas{
+            display: none;
+        }
+        button#snap{
+            margin-top: 36px;
+            img{
+                width: 53px;
+                height: 43px;
+            }
+            background: transparent;
+        }
+    }
+}

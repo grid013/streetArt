@@ -1,0 +1,146 @@
+// Landing Page Styles
+
+@use "../abstracts/" as *;
+#landingPage {
+
+	
+	
+	.main-wrapper {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		@include max-M-phone {
+			padding-bottom: 2.5rem;
+		}
+		.logo {
+			width: 100px;
+			padding: 50px 0;
+			@include max-L-phone {
+				padding: 1rem 0;
+			}
+		}
+	}
+
+	.polygons-wrapper {
+		position: relative;
+		height: 400px;
+		width: 240px;
+		@include max-M-phone {
+			height: 420px;
+			width: 210px;
+		}
+	}
+
+	.join-artist-wrapper,.join-visitor-wrapper{
+		position: absolute;
+		transition: filter 0.7s;
+	}
+	.join-artist-wrapper:hover,.join-visitor-wrapper:hover{
+		animation: backtofront 1.2s linear forwards;
+		position: absolute;
+		filter: drop-shadow(-1px 5px 23px rgba(0,0,0,0.66));
+	}
+
+	.join-visitor-wrapper{
+		bottom: 0;
+	}
+
+	@keyframes backtofront {
+	  from { z-index: 0; opacity: 0.92; }
+	  to { z-index: 3; opacity: 1; }
+	}
+
+	.join-artist:hover,
+	.join-visitor:hover {
+		-moz-transform: scale(1.1) translate(0px, -5px);
+		-webkit-transform: scale(1.1) translate(0px, -5px);
+		-o-transform: scale(1.1) translate(0px, -5px);
+		-ms-transform: scale(1.1) translate(0px, -5px);
+		transform: scale(1.1) translate(0px, -5px);
+	}
+
+	.join-artist,
+	.join-visitor {
+		position: absolute;
+		height: 276.5px;
+		width: 260px;
+		display: flex;
+		justify-content: center;
+		transition: all ease-in-out 0.3s;
+		cursor: pointer;
+		@include max-M-phone {
+			height: 256.5px;
+			width: 240px;
+		}
+		p {
+			font-family:'Times New Roman', Times, serif,cursive;;
+			font-weight: 500;
+			font-size: 45px;
+			@include max-M-phone {
+				font-size: 40px;
+			}
+		}
+	}
+
+	.join-artist {
+		top: 0;
+		-webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 42%);
+		clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 42%);
+
+
+
+	
+		
+		background-color: $background-normal;
+		.artist-wrapper {
+			position: absolute;
+			top: 60px;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-end;
+		}
+		p {
+			color: $primary-default;
+		}
+		.join-artist-select{
+			width: 97px;
+			height: 27px;
+			border-radius: 2px;
+			background: $background-light;
+			border: 1px solid $primary-default;
+			color: $primary-default;
+			font-weight: 300;
+			font-size: 13px;
+			outline: none;
+			transition: all 0.02s ease;
+			cursor: pointer;
+		
+			-webkit-transition: all 0.02s ease;
+			-moz-transition: all 0.02s ease;
+			-ms-transition: all 0.02s ease;
+			-o-transition: all 0.02s ease;
+
+				cursor: pointer;
+			}
+			&.alert{
+				font-size: 14px;
+				font-weight: 500;
+			}
+		}
+	
+
+	.join-visitor {
+		bottom: 0;
+		-webkit-clip-path: polygon(0 0, 100% 58%, 100% 100%, 0 100%);
+		clip-path: polygon(0 0, 100% 58%, 100% 100%, 0 100%);
+		background-color: $primary-default;
+		p {
+			position: absolute;
+			bottom: 80px;
+			color: $background-normal;
+		}
+	}
+}
+
+
